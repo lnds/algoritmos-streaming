@@ -1,7 +1,14 @@
 defmodule FlowWordcount do
 
   def main() do
+    
     for arg <- System.argv() do
+      {time_in_microsecond, res}= :timer.tc(fn -> process_file(arg) end)
+      IO.inspect(time_in_microsecond / 1000)
+    end
+  end
+
+  def process_file(arg) do
       File.stream!(arg, :line)
       |> Flow.from_enumerable()
       |> Flow.flat_map(&String.split/1)
@@ -12,6 +19,6 @@ defmodule FlowWordcount do
       |> Enum.into([])
       |> List.keysort(1, :desc)
       |> IO.inspect()
-    end
+    
   end
 end
