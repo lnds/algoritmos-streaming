@@ -12,7 +12,7 @@ defmodule GenStage1.Consumer do
 
   def handle_events(events, _from, state) do
     for event <- events do
-      IO.inspect({self(), event, state})
+      IO.inspect(event)
     end
 
     # a consumer never emit events

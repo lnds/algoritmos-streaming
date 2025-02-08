@@ -13,7 +13,7 @@ defmodule GenStage1.ProducerConsumer do
   end
 
   def handle_events(events, _from, state) do
-    numbers = events |> Enum.filter(&Integer.is_even/1)
+    numbers = events |> Enum.filter(&Integer.is_odd/1)
     {:noreply, numbers, state}
   end
 end
