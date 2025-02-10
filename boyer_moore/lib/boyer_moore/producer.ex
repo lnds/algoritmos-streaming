@@ -13,7 +13,7 @@ defmodule BoyerMoore.Producer do
   def handle_demand(demand, state) do
     events = Enum.to_list(0..demand) |> Enum.map(fn i -> 
       if i < 5 do 
-         Enum.random(2..5)
+          Enum.random(2..5)
       else 
         Enum.random(0..10) 
       end

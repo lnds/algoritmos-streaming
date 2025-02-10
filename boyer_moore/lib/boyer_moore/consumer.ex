@@ -22,7 +22,7 @@ defmodule BoyerMoore.Consumer do
           end
         end
       end)
-    #    IO.puts("events: #{inspect(events)}")
+    IO.puts("events: #{inspect(events)}")
     IO.puts("new state: #{inspect(new_state)}, old state: #{inspect(state)}")
     {:noreply, [], new_state}
   end
